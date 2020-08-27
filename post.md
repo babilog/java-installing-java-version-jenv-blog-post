@@ -3,7 +3,9 @@
 Created: Aug 27, 2020 10:19 AM
 Status: Draft
 
-I think its fair to say that going through the process of installing Java on any machine is in of itself a bit confusing. For those that come from NodeJS, its as easy as installing `nvm` and running `nvm install [some nodejs version]` and calling it a day. The goal of this post is to show that we could do just that, install a package to allow us to toggle between Java versions and set our `JAVA_HOME` path automatically for us just by running a few simple commands.
+I think its fair to say that going through the process of installing Java on any machine is in of itself a bit confusing. For those that come from NodeJS, installing a new version of Node is as easy as installing `nvm` and running `nvm install [some nodejs version]` and calling it a day.
+
+The goal of this post is to show that we could do just that with Java, install a package to allow us to toggle between Java versions and set our `JAVA_HOME` path automatically for us just by running a few simple commands.
 
 Before we start, ensure that you have `homebrew` installed and that you have updated all dependencies (ie. run `brew upgrade`)
 
@@ -29,13 +31,13 @@ Before we start, ensure that you have `homebrew` installed and that you have upd
 
     **Note:** It's important that now you restart your `bash` terminal or run `. ~/.zshrc` to reload your `.zshrc` now that we have added a new command shortcut.
 
-3. Now let's go ahead and download a `brew cask` for the jdk version that we are after. Before we go and download the version that we need, ensure that you run the following command to add the brew repo to your machine ([https://github.com/AdoptOpenJDK/homebrew-openjdk](https://github.com/AdoptOpenJDK/homebrew-openjdk)). Note that `oracle-jdk` , check out the instructions listed here [https://formulae.brew.sh/cask/oracle-jdk](https://formulae.brew.sh/cask/oracle-jdk). Note that the following steps will be only to install the AdoptOpenJDK and not the Oracle JDK. If you need some info on the differences between each type, check out [https://www.openlogic.com/blog/java-experts-openjdk-vs-oracle-jdk#:~:text=The biggest difference in OpenJDK,JDK requires a commercial license.&text=Since January 2019%2C businesses now,order to receive software updates](https://www.openlogic.com/blog/java-experts-openjdk-vs-oracle-jdk#:~:text=The%20biggest%20difference%20in%20OpenJDK,JDK%20requires%20a%20commercial%20license.&text=Since%20January%202019%2C%20businesses%20now,order%20to%20receive%20software%20updates).
+3. Now let's go ahead and download a `brew cask` for the jdk version that we are after. Before we go and download the version that we need, ensure that you run the following command to add the brew repo to your machine ([https://github.com/AdoptOpenJDK/homebrew-openjdk](https://github.com/AdoptOpenJDK/homebrew-openjdk)). Note that to install `oracle-jdk` , check out the instructions listed here [https://formulae.brew.sh/cask/oracle-jdk](https://formulae.brew.sh/cask/oracle-jdk). Note that the following steps will be only to install the AdoptOpenJDK and not the Oracle JDK. If you need some info on the differences between each type, check out [https://www.openlogic.com/blog/java-experts-openjdk-vs-oracle-jdk#:~:text=The biggest difference in OpenJDK,JDK requires a commercial license.&text=Since January 2019%2C businesses now,order to receive software updates](https://www.openlogic.com/blog/java-experts-openjdk-vs-oracle-jdk#:~:text=The%20biggest%20difference%20in%20OpenJDK,JDK%20requires%20a%20commercial%20license.&text=Since%20January%202019%2C%20businesses%20now,order%20to%20receive%20software%20updates).
 
     ```bash
     $ brew tap AdoptOpenJDK/openjdk
     ```
 
-4. Now that we have the `AdoptOpenJDK`, let's run the following command to Java 8 install (jdk `1.8.x` )
+4. Now that we have the `AdoptOpenJDK`, let's run the following command to install Java 8 (jdk `1.8.x` )
 
     ```bash
      $ brew cask install adoptopenjdk8
@@ -79,3 +81,8 @@ Before we start, ensure that you have `homebrew` installed and that you have upd
 That's it! Hopefully it was painless and straightforward, next time you need to toggle between versions, just run `jenv {version}` and you're all set.
 
 You could also set versions of Java specific to your shell terminal, or directory, simply replace `global` with `local` (if you are within a specific directory) or `shell` for adding a version to specific to the shell you're running.
+## Resources:
+* [https://www.jenv.be/](https://www.jenv.be/)
+* [https://github.com/jenv/jenv](https://github.com/jenv/jenv)
+* [https://installvirtual.com/install-openjdk-8-on-mac-using-brew-adoptopenjdk/](https://installvirtual.com/install-openjdk-8-on-mac-using-brew-adoptopenjdk/)
+* [https://www.openlogic.com/blog/java-experts-openjdk-vs-oracle-jdk#:~:text=The biggest difference in OpenJDK,JDK requires a commercial license.&text=Since January 2019%2C businesses now,order to receive software updates](https://www.openlogic.com/blog/java-experts-openjdk-vs-oracle-jdk#:~:text=The%20biggest%20difference%20in%20OpenJDK,JDK%20requires%20a%20commercial%20license.&text=Since%20January%202019%2C%20businesses%20now,order%20to%20receive%20software%20updates)
